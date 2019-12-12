@@ -1,0 +1,43 @@
+{
+    "name": "Organization",
+    "fields": [
+        {
+            "fieldName": "orgName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orgType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orgAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orgEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "appUser",
+            "otherEntityRelationshipName": "organization",
+            "relationshipName": "appuser"
+        }
+    ],
+    "changelogDate": "20191210060608",
+    "entityTableName": "organization",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

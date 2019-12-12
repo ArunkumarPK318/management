@@ -1,0 +1,43 @@
+{
+    "name": "AppType",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "app",
+            "otherEntityRelationshipName": "appType",
+            "relationshipName": "app"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "roles",
+            "otherEntityRelationshipName": "roles",
+            "relationshipName": "roles"
+        }
+    ],
+    "changelogDate": "20191210060604",
+    "entityTableName": "app_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,66 @@
+{
+    "name": "AppUser",
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "roles",
+            "otherEntityRelationshipName": "appuser",
+            "relationshipName": "roles"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "app",
+            "otherEntityRelationshipName": "appuser",
+            "relationshipName": "app",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "organization",
+            "otherEntityRelationshipName": "appuser",
+            "relationshipName": "organization",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191210060607",
+    "entityTableName": "app_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

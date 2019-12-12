@@ -1,0 +1,53 @@
+{
+    "name": "Roles",
+    "fields": [
+        {
+            "fieldName": "roleType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "role",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "appType",
+            "otherEntityRelationshipName": "roles",
+            "relationshipName": "roles",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "app",
+            "otherEntityRelationshipName": "roles",
+            "relationshipName": "app",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "appUser",
+            "otherEntityRelationshipName": "roles",
+            "relationshipName": "appuser",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191210060606",
+    "entityTableName": "roles",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

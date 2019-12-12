@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="organization">
+            <h2><span>Organization</span> {{organization.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Org Name</span></dt>
+                <dd>
+                    <span>{{organization.orgName}}</span>
+                </dd>
+                <dt><span>Org Type</span></dt>
+                <dd>
+                    <span>{{organization.orgType}}</span>
+                </dd>
+                <dt><span>Org Address</span></dt>
+                <dd>
+                    <span>{{organization.orgAddress}}</span>
+                </dd>
+                <dt><span>Org Email</span></dt>
+                <dd>
+                    <span>{{organization.orgEmail}}</span>
+                </dd>
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{organization.date}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/organization', organization.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

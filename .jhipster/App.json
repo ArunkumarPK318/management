@@ -1,0 +1,55 @@
+{
+    "name": "App",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "urlPath",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "appUser",
+            "otherEntityRelationshipName": "app",
+            "relationshipName": "appuser"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "roles",
+            "otherEntityRelationshipName": "app",
+            "relationshipName": "roles"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "appType",
+            "otherEntityRelationshipName": "app",
+            "relationshipName": "appType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191210060605",
+    "entityTableName": "app",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

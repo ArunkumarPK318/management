@@ -44,6 +44,17 @@ public class CacheConfiguration {
             createCache(cm, com.aspirenxt.usermanagementapp.domain.User.class.getName() + ".authorities");
             createCache(cm, com.aspirenxt.usermanagementapp.domain.PersistentToken.class.getName());
             createCache(cm, com.aspirenxt.usermanagementapp.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.AppType.class.getName());
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.AppType.class.getName() + ".apps");
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.AppType.class.getName() + ".roles");
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.App.class.getName());
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.App.class.getName() + ".appusers");
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.App.class.getName() + ".roles");
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.Roles.class.getName());
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.AppUser.class.getName());
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.AppUser.class.getName() + ".roles");
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.Organization.class.getName());
+            createCache(cm, com.aspirenxt.usermanagementapp.domain.Organization.class.getName() + ".appusers");
             // jhipster-needle-ehcache-add-entry
         };
     }
