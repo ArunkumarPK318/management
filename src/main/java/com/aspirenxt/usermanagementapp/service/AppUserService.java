@@ -1,6 +1,7 @@
 package com.aspirenxt.usermanagementapp.service;
 
 import com.aspirenxt.usermanagementapp.domain.AppUser;
+import com.aspirenxt.usermanagementapp.domain.Organization;
 import com.aspirenxt.usermanagementapp.repository.AppUserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 /**
  * Service Implementation for managing {@link AppUser}.
@@ -70,4 +73,12 @@ public class AppUserService {
         log.debug("Request to delete AppUser : {}", id);
         appUserRepository.deleteById(id);
     }
+    
+
+	public List<AppUser> findUserByOrg(AppUser appUser) {
+		// TODO Auto-generated method stub
+		Organization org = appUser.getOrganization();
+		return  appUserRepository.findByOrganization(org);
+		
+	}
 }

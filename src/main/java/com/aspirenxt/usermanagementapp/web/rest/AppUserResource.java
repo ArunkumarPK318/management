@@ -9,8 +9,10 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.zalando.problem.Status;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -115,5 +117,19 @@ public class AppUserResource {
         log.debug("REST request to delete AppUser : {}", id);
         appUserService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+    }
+    
+    @PostMapping("/appUserByOrg")
+    public ResponseEntity<List<AppUser>> getAllUserByOrganization(@Valid @RequestBody AppUser appUser) throws URISyntaxException {
+        log.debug("REST request to save AppUser : {}", appUser);
+        if (appUser.getId() == null) {
+            throw new BadRequestAlertException("A appUser cannot have an ID", ENTITY_NAME, "idexists");
+        }
+        List<AppUser> result = appUserService.findUserByOrg(appUser);
+        
+        return ResponseEntity.ok(result);
+//        return ResponseEntity.created(new URI("/api/appUserByOrg/")
+//            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME,result.toString()))
+//            .body(result);
     }
 }
