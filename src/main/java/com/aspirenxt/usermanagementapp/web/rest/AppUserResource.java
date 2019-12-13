@@ -1,5 +1,6 @@
 package com.aspirenxt.usermanagementapp.web.rest;
 
+import com.aspirenxt.usermanagementapp.domain.App;
 import com.aspirenxt.usermanagementapp.domain.AppUser;
 import com.aspirenxt.usermanagementapp.service.AppUserService;
 import com.aspirenxt.usermanagementapp.web.rest.errors.BadRequestAlertException;
@@ -131,5 +132,17 @@ public class AppUserResource {
 //        return ResponseEntity.created(new URI("/api/appUserByOrg/")
 //            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME,result.toString()))
 //            .body(result);
+    }
+    
+    @PostMapping("/appUsersByApp")
+    public ResponseEntity< List<AppUser>> getAllAppsByApptype(@Valid @RequestBody AppUser appUser) throws URISyntaxException {
+        log.debug("REST request to update App : {}", appUser);
+        if (appUser.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        List<AppUser> result = appUserService.findByApp(appUser);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, appUser.getId().toString()))
+            .body(result);
     }
 }

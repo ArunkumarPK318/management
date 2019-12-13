@@ -1,4 +1,5 @@
 package com.aspirenxt.usermanagementapp.repository;
+import com.aspirenxt.usermanagementapp.domain.App;
 import com.aspirenxt.usermanagementapp.domain.AppUser;
 import com.aspirenxt.usermanagementapp.domain.Organization;
 
@@ -14,6 +15,9 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
+	
 	List<AppUser> findByOrganization(Organization org);
+
+	List<AppUser> findByApp(App app);
 
 }

@@ -1,5 +1,6 @@
 package com.aspirenxt.usermanagementapp.service;
 
+import com.aspirenxt.usermanagementapp.domain.App;
 import com.aspirenxt.usermanagementapp.domain.AppUser;
 import com.aspirenxt.usermanagementapp.domain.Organization;
 import com.aspirenxt.usermanagementapp.repository.AppUserRepository;
@@ -80,5 +81,11 @@ public class AppUserService {
 		Organization org = appUser.getOrganization();
 		return  appUserRepository.findByOrganization(org);
 		
+	}
+
+	public List<AppUser> findByApp(@Valid AppUser appUser) {
+		// TODO Auto-generated method stub
+		App app = appUser.getApp();
+		return appUserRepository.findByApp(app);
 	}
 }

@@ -116,4 +116,17 @@ public class AppResource {
         appService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
+    
+    @PostMapping("/appsByApptype")
+    public ResponseEntity< List<App>> getAllAppsByApptype(@Valid @RequestBody App app) throws URISyntaxException {
+        log.debug("REST request to update App : {}", app);
+        if (app.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        List<App> result = appService.findByApptype(app);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, app.getId().toString()))
+            .body(result);
+    }
+    
 }

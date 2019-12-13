@@ -1,6 +1,7 @@
 package com.aspirenxt.usermanagementapp.service;
 
 import com.aspirenxt.usermanagementapp.domain.App;
+import com.aspirenxt.usermanagementapp.domain.AppType;
 import com.aspirenxt.usermanagementapp.repository.AppRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 /**
  * Service Implementation for managing {@link App}.
@@ -70,4 +73,10 @@ public class AppService {
         log.debug("Request to delete App : {}", id);
         appRepository.deleteById(id);
     }
+
+	public List<App> findByApptype(@Valid App app) {
+		// TODO Auto-generated method stub
+		AppType appType = app.getAppType();
+		return appRepository.findByAppType(appType);
+	}
 }
