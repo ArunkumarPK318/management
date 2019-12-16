@@ -1,5 +1,6 @@
 package com.aspirenxt.usermanagementapp.web.rest;
 
+import com.aspirenxt.usermanagementapp.domain.AppUser;
 import com.aspirenxt.usermanagementapp.domain.Roles;
 import com.aspirenxt.usermanagementapp.service.RolesService;
 import com.aspirenxt.usermanagementapp.web.rest.errors.BadRequestAlertException;
@@ -115,5 +116,17 @@ public class RolesResource {
         log.debug("REST request to delete Roles : {}", id);
         rolesService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+    }
+    
+    @PostMapping("/rolesByApptype")
+    public ResponseEntity< List<Roles>> getAllAppsByApptype(@Valid @RequestBody Roles role) throws URISyntaxException {
+        log.debug("REST request to update App : {}", role);
+        if (role.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        List<Roles> result = rolesService.getRolesByApptype(role);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, role.getId().toString()))
+            .body(result);
     }
 }

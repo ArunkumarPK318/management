@@ -1,5 +1,6 @@
 package com.aspirenxt.usermanagementapp.service;
 
+import com.aspirenxt.usermanagementapp.domain.AppType;
 import com.aspirenxt.usermanagementapp.domain.Roles;
 import com.aspirenxt.usermanagementapp.repository.RolesRepository;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 /**
  * Service Implementation for managing {@link Roles}.
@@ -70,4 +73,11 @@ public class RolesService {
         log.debug("Request to delete Roles : {}", id);
         rolesRepository.deleteById(id);
     }
+
+	public List<Roles> getRolesByApptype(@Valid Roles role) {
+		// TODO Auto-generated method stub
+		AppType appType = role.getApptype();
+		return rolesRepository.findByApptype(appType);
+			
+	}
 }
