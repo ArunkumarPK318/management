@@ -22,7 +22,7 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "appType",
             "otherEntityRelationshipName": "roles",
-            "relationshipName": "roles",
+            "relationshipName": "apptype",
             "otherEntityField": "id"
         },
         {

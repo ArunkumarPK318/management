@@ -8,9 +8,9 @@
     -->
     <changeSet id="20191210060606-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="roles_id"
+        <addForeignKeyConstraint baseColumnNames="apptype_id"
                                  baseTableName="roles"
-                                 constraintName="fk_roles_roles_id"
+                                 constraintName="fk_roles_apptype_id"
                                  referencedColumnNames="id"
                                  referencedTableName="app_type"/>
 

@@ -145,4 +145,18 @@ public class AppUserResource {
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, appUser.getId().toString()))
             .body(result);
     }
+    
+    @PostMapping("/appUsersByRolesAndApp")
+    public ResponseEntity< List<AppUser>> getAllUserByRolesAndApp(@Valid @RequestBody AppUser appUser) throws URISyntaxException {
+        log.debug("REST request to update App : {}", appUser);
+        if (appUser.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        
+        List<AppUser> result = appUserService.getAllUserByRolesAndApp(appUser);
+        System.out.println(" get all user by app and roles "+result);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, appUser.getId().toString()))
+            .body(result);
+    }
 }

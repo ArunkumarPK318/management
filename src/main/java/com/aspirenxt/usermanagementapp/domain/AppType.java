@@ -35,7 +35,7 @@ public class AppType implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<App> apps = new HashSet<>();
 
-    @OneToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "apptype")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Roles> roles = new HashSet<>();
 
@@ -110,13 +110,13 @@ public class AppType implements Serializable {
 
     public AppType addRoles(Roles roles) {
         this.roles.add(roles);
-        roles.setRoles(this);
+        roles.setApptype(this);
         return this;
     }
 
     public AppType removeRoles(Roles roles) {
         this.roles.remove(roles);
-        roles.setRoles(null);
+        roles.setApptype(null);
         return this;
     }
 

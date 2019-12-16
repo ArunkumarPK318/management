@@ -29,7 +29,7 @@ export class RolesUpdatePage {
   roleTypeInput = element(by.id('field_roleType'));
   roleInput = element(by.id('field_role'));
   codeInput = element(by.id('field_code'));
-  rolesSelect = element(by.id('field_roles'));
+  apptypeSelect = element(by.id('field_apptype'));
   appSelect = element(by.id('field_app'));
   appuserSelect = element(by.id('field_appuser'));
 
@@ -61,23 +61,23 @@ export class RolesUpdatePage {
     return await this.codeInput.getAttribute('value');
   }
 
-  async rolesSelectLastOption() {
-    await this.rolesSelect
+  async apptypeSelectLastOption() {
+    await this.apptypeSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async rolesSelectOption(option) {
-    await this.rolesSelect.sendKeys(option);
+  async apptypeSelectOption(option) {
+    await this.apptypeSelect.sendKeys(option);
   }
 
-  getRolesSelect(): ElementFinder {
-    return this.rolesSelect;
+  getApptypeSelect(): ElementFinder {
+    return this.apptypeSelect;
   }
 
-  async getRolesSelectedOption() {
-    return await this.rolesSelect.element(by.css('option:checked')).getText();
+  async getApptypeSelectedOption() {
+    return await this.apptypeSelect.element(by.css('option:checked')).getText();
   }
 
   async appSelectLastOption() {

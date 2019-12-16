@@ -25,7 +25,7 @@
             <column name="code" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="roles_id" type="bigint">
+            <column name="apptype_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="app_id" type="bigint">

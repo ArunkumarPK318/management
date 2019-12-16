@@ -17,10 +17,10 @@
                 <dd>
                     <span>{{roles.code}}</span>
                 </dd>
-                <dt><span>Roles</span></dt>
+                <dt><span>Apptype</span></dt>
                 <dd>
-                    <div *ngIf="roles.roles">
-                        <a [routerLink]="['/app-type', roles.roles?.id, 'view']">{{roles.roles?.id}}</a>
+                    <div *ngIf="roles.apptype">
+                        <a [routerLink]="['/app-type', roles.apptype?.id, 'view']">{{roles.apptype?.id}}</a>
                     </div>
                 </dd>
                 <dt><span>App</span></dt>

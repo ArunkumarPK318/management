@@ -42,7 +42,7 @@ describe('Roles e2e test', () => {
       rolesUpdatePage.setRoleTypeInput('roleType'),
       rolesUpdatePage.setRoleInput('role'),
       rolesUpdatePage.setCodeInput('code'),
-      rolesUpdatePage.rolesSelectLastOption(),
+      rolesUpdatePage.apptypeSelectLastOption(),
       rolesUpdatePage.appSelectLastOption(),
       rolesUpdatePage.appuserSelectLastOption()
     ]);

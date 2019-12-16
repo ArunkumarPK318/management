@@ -34,7 +34,7 @@ public class Roles implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("roles")
-    private AppType roles;
+    private AppType apptype;
 
     @ManyToOne
     @JsonIgnoreProperties("roles")
@@ -92,17 +92,17 @@ public class Roles implements Serializable {
         this.code = code;
     }
 
-    public AppType getRoles() {
-        return roles;
+    public AppType getApptype() {
+        return apptype;
     }
 
-    public Roles roles(AppType appType) {
-        this.roles = appType;
+    public Roles apptype(AppType appType) {
+        this.apptype = appType;
         return this;
     }
 
-    public void setRoles(AppType appType) {
-        this.roles = appType;
+    public void setApptype(AppType appType) {
+        this.apptype = appType;
     }
 
     public App getApp() {

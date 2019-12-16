@@ -22,7 +22,7 @@
             <th scope="col" ><span>Role Type</span></th>
             <th scope="col" ><span>Role</span></th>
             <th scope="col" ><span>Code</span></th>
-            <th scope="col" ><span>Roles</span></th>
+            <th scope="col" ><span>Apptype</span></th>
             <th scope="col" ><span>App</span></th>
             <th scope="col" ><span>Appuser</span></th>
             <th scope="col"></th>
@@ -35,8 +35,8 @@
                 <td>{{roles.role}}</td>
                 <td>{{roles.code}}</td>
                 <td>
-                    <div *ngIf="roles.roles">
-                        <a [routerLink]="['/app-type', roles.roles?.id, 'view' ]" >{{roles.roles?.id}}</a>
+                    <div *ngIf="roles.apptype">
+                        <a [routerLink]="['/app-type', roles.apptype?.id, 'view' ]" >{{roles.apptype?.id}}</a>
                     </div>
                 </td>
                 <td>

@@ -7,7 +7,7 @@ export interface IRoles {
   roleType?: string;
   role?: string;
   code?: string;
-  roles?: IAppType;
+  apptype?: IAppType;
   app?: IApp;
   appuser?: IAppUser;
 }
@@ -18,7 +18,7 @@ export class Roles implements IRoles {
     public roleType?: string,
     public role?: string,
     public code?: string,
-    public roles?: IAppType,
+    public apptype?: IAppType,
     public app?: IApp,
     public appuser?: IAppUser
   ) {}

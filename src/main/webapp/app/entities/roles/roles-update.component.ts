@@ -33,7 +33,7 @@ export class RolesUpdateComponent implements OnInit {
     roleType: [null, [Validators.required]],
     role: [],
     code: [],
-    roles: [],
+    apptype: [],
     app: [],
     appuser: []
   });
@@ -70,7 +70,7 @@ export class RolesUpdateComponent implements OnInit {
       roleType: roles.roleType,
       role: roles.role,
       code: roles.code,
-      roles: roles.roles,
+      apptype: roles.apptype,
       app: roles.app,
       appuser: roles.appuser
     });
@@ -97,7 +97,7 @@ export class RolesUpdateComponent implements OnInit {
       roleType: this.editForm.get(['roleType']).value,
       role: this.editForm.get(['role']).value,
       code: this.editForm.get(['code']).value,
-      roles: this.editForm.get(['roles']).value,
+      apptype: this.editForm.get(['apptype']).value,
       app: this.editForm.get(['app']).value,
       appuser: this.editForm.get(['appuser']).value
     };

@@ -3,15 +3,20 @@ package com.aspirenxt.usermanagementapp.service;
 import com.aspirenxt.usermanagementapp.domain.App;
 import com.aspirenxt.usermanagementapp.domain.AppUser;
 import com.aspirenxt.usermanagementapp.domain.Organization;
+import com.aspirenxt.usermanagementapp.domain.Roles;
 import com.aspirenxt.usermanagementapp.repository.AppUserRepository;
+import com.aspirenxt.usermanagementapp.repository.RolesRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -23,11 +28,12 @@ import javax.validation.Valid;
 public class AppUserService {
 
     private final Logger log = LoggerFactory.getLogger(AppUserService.class);
-
+  
     private final AppUserRepository appUserRepository;
 
-    public AppUserService(AppUserRepository appUserRepository) {
+     public AppUserService(AppUserRepository appUserRepository) {
         this.appUserRepository = appUserRepository;
+     
     }
 
     /**
@@ -87,5 +93,19 @@ public class AppUserService {
 		// TODO Auto-generated method stub
 		App app = appUser.getApp();
 		return appUserRepository.findByApp(app);
+	}
+
+	public List<AppUser> getAllUserByRolesAndApp(@Valid AppUser appUser) {
+		// TODO Auto-generated method stub
+	
+		List<Roles> role =(List<Roles>) appUserRepository.getRolesByAppuser();
+		System.out.println("get roles by user "+role);
+		Set<Roles> hSet = new HashSet<Roles>(role); 
+        hSet.addAll(role); 
+		appUser.setRoles(hSet);
+		App app = appUser.getApp();
+		System.out.println("app and roles "+app+"roles =="+role);
+		return  appUserRepository.findByAppAndRolesIn(app, role);
+//		return null;
 	}
 }

@@ -26,7 +26,7 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "roles",
-            "otherEntityRelationshipName": "roles",
+            "otherEntityRelationshipName": "apptype",
             "relationshipName": "roles"
         }
     ],
